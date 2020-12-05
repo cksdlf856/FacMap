@@ -5,7 +5,6 @@ import Navibar from './Components/Navaibar';
 
 
 function App(props) {
-
   return (
     <div id="root">
       <Navibar />
