@@ -1,0 +1,81 @@
+.TitleLine_list::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+  
+  /* Track */
+  .TitleLine_list::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey; 
+    border-radius: 20px;
+  }
+   
+  /* Handle */
+  .TitleLine_list::-webkit-scrollbar-thumb {
+    background: green; 
+    border-radius: 20px;
+  }
+  
+  /* Handle on hover */
+  .TitleLine_list::-webkit-scrollbar-thumb:hover {
+    background: #b30000; 
+  }
+
+  
+#react-naver-maps-introduction{
+    position: relative;
+    z-index: 1;
+}
+.ToMeBTN{
+    background-image: url('../Images/ToMeImg.png');
+    width: 42px;
+    height: 42px;
+    background-position: center;
+    background-size: cover;
+    border-radius: 15px 15px 15px 15px;
+    position: absolute;
+    left: 0;
+    outline: 0;
+    z-index: 2;
+}
+.ToMeBTN:hover{
+    cursor: pointer;
+}
+
+.TitleLine{
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    height: 30px;
+    background-color: white;
+    /* width */
+  
+
+}
+.TitleLine_list{
+    white-space: nowrap; 
+    overflow: auto;
+    margin-top: 0;
+    margin-bottom: 0;
+    height: 30px;
+    background-color: rgb(170, 169, 169);
+}
+
+.TitleLine_list li{
+    display:inline-block;
+    color: black;
+    height: 27px;
+    width: max-content;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.Title_type{
+  font-weight: bold;
+  font-size: 18px;
+}
+.Title_type:hover{
+  cursor: pointer;
+  color: green;
+  border-color: green;
+  border-style: solid;
+  border-width: 0 0 3px 0;
+}

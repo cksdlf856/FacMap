@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import ClassInfo from '../Data/ClassInfo.json';
 
-function ChartPage(){
+
+function ChartPage() {
     return(
-        <div>Chart</div>
+        <div>chart</div>
     )
 }
 
