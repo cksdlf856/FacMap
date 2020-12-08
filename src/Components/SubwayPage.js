@@ -115,7 +115,7 @@ function SubwayPage(props) {
             <div className="TitleLine_BackPoint"></div>
             <div className="TitleLine">
                 <p>서울 지하철역들 중 승강 설비 공사 현황</p>
-                <p>승강 설비 현황 및 도착 시간을 확인해보세요!</p>
+                <p>승강 설비 현황 및 도착 시간을 확인해보세요!(약 1~2초간의 소요가 발생할 수 있습니다.)</p>
             </div>
             <RenderAfterNavermapsLoaded
                 ncpClientId={'ce25x52vaf'} // 자신의 네이버 계정에서 발급받은 Client ID
