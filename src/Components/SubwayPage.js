@@ -5,6 +5,7 @@ import { Modal } from 'antd';
 import swal from 'sweetalert';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import { RenderAfterNavermapsLoaded } from 'react-naver-maps'; // 패키지 불러오기
+import '../CSSs/SubwayPage.css';
 
 // Image import
 import warning from '../Images/warning.png'
@@ -22,8 +23,8 @@ function SubwayPage(props) {
 
     const [Markers, setMarkers] = useState([]);
     const [MyPos, setMyPos] = useState({
-        lat : props.POS.x,
-        lng : props.POS.y
+        lat: props.POS.x,
+        lng: props.POS.y
     })
 
 
@@ -65,7 +66,7 @@ function SubwayPage(props) {
                         list2.push(
                             <Marker
                                 key={data.id}
-                                position={{ lat: Subway[data.name][0], lng: Subway[data.name][1]}}
+                                position={{ lat: Subway[data.name][0], lng: Subway[data.name][1] }}
                                 animation={2}
                                 icon={warning}
                                 onClick={() => {
@@ -110,16 +111,21 @@ function SubwayPage(props) {
 
 
     return (
-        <div>
+        <div className="Router_Div">
+            <div className="TitleLine_BackPoint"></div>
+            <div className="TitleLine">
+                <p>서울 지하철역들 중 승강 설비 공사 현황</p>
+                <p>승강 설비 현황 및 도착 시간을 확인해보세요!</p>
+            </div>
             <RenderAfterNavermapsLoaded
                 ncpClientId={'ce25x52vaf'} // 자신의 네이버 계정에서 발급받은 Client ID
                 error={<p>Maps Load Error</p>}
                 loading={<p>Maps Loading...</p>}
             >
                 <NaverMap
-                    id='Mymap'
-                    style={{ width: '100%', height: '93.36vh' }}
-                    defaultZoom={16}
+                    id="react-naver-maps-introduction"
+                    style={{ width: '1000px', height: '600px' }}
+                    defaultZoom={12}
                     center={MyPos}
                 >
                     <Marker

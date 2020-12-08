@@ -2,19 +2,69 @@
     font-family: "BMJ";
     src: url('../Fonts/BMJUA_ttf.7dbe95a7.ttf');
 }
+.RouterDiv{
+    display: flex;
+}
 
 .Navibar { 
-    width: 100%;
-    height: 5vh;
-    background-color: rgb(51, 50, 50);
+    display: inline-block;
+    width: 30%;
+    height: 100vh;
+    background-color: #a8c3e8;
     font-size: 25px;
-    text-align: center;
     font-family: BMJ;
-    line-height: 50px;
-    vertical-align: middle;
     color: white;
 }
+.Navibar_text{
+    font-size: 35px;
+    font-weight: bold;
+    color: black;
+    margin-top: 50px;
+}
 .Navibar_Content{
-    height: 95vh;
-    overflow-y: hidden;
+    width: 70%;
+    height: 100vh;
+}
+
+.linkitem{
+    display: block;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 127px;
+    border-radius: 30px 0 30px 0;
+    vertical-align: middle;
+    font-weight: bold;
+}
+.linkitem:hover{
+    color: blue;
+}
+.menu_icon{
+    width: 96px;
+    height: 138px;
+    background-image: url('../Images/menuIcon.png');
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    margin-bottom: 100px;
+}
+.menu1{
+    width: 291px;
+    height: 127px;
+    background-image: url('../Images/menu1.png');
+}
+.menu2{
+    width: 291px;
+    height: 127px;
+    background-image: url('../Images/menu2.png');
+}
+.menu3{
+    width: 291px;
+    height: 127px;
+    background-image: url('../Images/menu3.png');
+}
+
+.using{ /* 메뉴 클릭시 특수효과 위한 class */
+    color: blue;
 }

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 // navermap 관련
-import { NaverMap, Marker } from 'react-naver-maps'; 
+import { NaverMap, Marker } from 'react-naver-maps';
 import Swal from 'sweetalert2'
 // Component 관련
 import '../CSSs/NaverMapComponent.css';
@@ -13,6 +13,22 @@ import { connect } from 'react-redux';
 import { actionCreators } from '../store';
 
 
+// Data관련
+import ChildrenWelfareFacility from '../Data/ChildrenWelfareFacility.json';
+import DaycareCenter from '../Data/DaycareCenter.json';
+import DisableEmployeeFacility from '../Data/DisableEmployeeFacility.json';
+import DisableFacility from '../Data/DisableFacility.json';
+import GeneralHospital from '../Data/GeneralHospital.json';
+import KinderGarden from '../Data/KinderGarden.json';
+import PoliceBox from '../Data/PoliceBox.json';
+import PublicHealth from '../Data/PublicHealth.json';
+import PublicToilet from '../Data/PublicToliet.json';
+import Shlter from '../Data/Shelter.json';
+import SpecialSchool from '../Data/SpecialSchool.json';
+import WelfareCenter from '../Data/WelfareCenter.json';
+
+// 장애인 편의시설 종류 배열
+let Faclities = ['아동복지센터', '어린이집', '장애인고용공단', '장애인복지시설', '종합병원', '유치원집', '파출소', '보건소', '공용화장실', '대피소', '특수학교', '노인복지시설(경로당포함)'];
 
 
 function NaverMapComponent(props) {
@@ -28,8 +44,20 @@ function NaverMapComponent(props) {
   })
   const [ClassTypes, setClassTypes] = useState([]);
   const [MarkerContainer, setMarkerContainer] = useState([]);
+  const [SportType, setSportType] = useState('');
+  const [SportType2, setSportType2] = useState('');
 
-  
+  const selectType = e => {
+    setSportType(e.target.value);
+    setSportType2('null');
+    MakeMarker(e.target.value);
+  }
+  const selectType2 = e => {
+    setSportType2(e.target.value);
+    setSportType('null');
+    MakeMarker2(e.target.value);
+  }
+
 
 
 
@@ -63,27 +91,27 @@ function NaverMapComponent(props) {
     getLocation();
   }
 
-  function GetClassInfo(){
+  function GetClassInfo() {
     let title = new Set();
-    ClassInfo.forEach(data=> title.add(data[5]));
+    ClassInfo.forEach(data => title.add(data[5]));
     setClassTypes(Array.from(title));
     console.log(ClassTypes)
   }
 
-
-  function MakeMarker(type){
+  // 운동시설 Marker 만드는 함수
+  function MakeMarker(type) {
     let Made = [];
-    ClassInfo.forEach((data,index)=>{
-      if(data[5] === type){
+    ClassInfo.forEach((data, index) => {
+      if (data[5] === type) {
         Made.push(
           <Marker
             key={index}
-            position={{lat: data[7], lng: data[6]}}
+            position={{ lat: data[7], lng: data[6] }}
             animation={2}
-            onClick={()=>{
+            onClick={() => {
               Swal.fire({
-                title : data[1],
-                text : data[3]+data[4] + <br/> + 'asd',
+                title: data[1],
+                text: data[3] + data[4],
               })
             }}
           />
@@ -94,36 +122,106 @@ function NaverMapComponent(props) {
     setMarkerContainer(Made);
   }
 
+  // 편의시설 Marker 만드는 함수
+  function MakeMarker2(type){
+    let Made = [];
+    switch(type){
+      case '아동복지센터' :
+        ChildrenWelfareFacility.forEach((data,index)=>{
+          Made.push(
+            <Marker
+            key={index}
+            position={{ lat: data[2], lng: data[1] }}
+            animation={2}
+            onClick={() => {
+              Swal.fire({
+                title: data[0],
+              })
+            }}
+          />
+          )
+        }) 
+        console.log('1');
+        setMarkerContainer(Made);
+        break;
+      case '어린이집' : 
+        console.log("2");
+        break;
+      case '장애인고용공단' : 
+        console.log("3");
+        break;
+      case '장애인복지시설' : 
+        console.log("4");
+        break;
+      case '종합병원' : 
+        console.log("5");
+        break;
+      case '유치원집' : 
+        console.log("6");
+        break;
+      case '파출소' : 
+        console.log("7");
+        break;
+      case '보건소' : 
+        console.log("8");
+        break;
+      case '공용화장실' : 
+        console.log("9");
+        break;
+      case '대피소' : 
+        console.log("10");
+        break;
+      case '특수학교' : 
+        console.log("11");
+        break;
+      case '노인복지시설(경로당포함)' : 
+        console.log("12");
+        break;
+    }
+  }
 
 
 
 
 
-// ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ useEffect
+  // ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ useEffect
   useEffect(() => {
     getLocation();
     GetClassInfo();
-  },[])
-
+  }, [])
 
 
   // ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ return
   return (
-    <div>
+    <div className="Router_Div">
+      <div className="TitleLine_BackPoint"></div>
+      <div className="TitleLine">
+        <p>찾으시는 종목을 선택하시면 해당 체육시설 또는 편의시설들이 표시됩니다.</p>
+        <span className="SelectMenu_span1">종목 : </span>
+        <select className="SelectMenu" onChange={selectType} value={SportType}>
+          <option value={null}>선택하세요.</option>
+          {ClassTypes.map((data, index) => {
+            return <option key={index} value={data}>{data}</option>
+          })}
+        </select>
+        <span className="SelectMenu_span2">편의시설 : </span>
+        <select className="SelectMenu2" onChange={selectType2} value={SportType2}>
+          <option value={null}>선택하세요.</option>
+          {Faclities.map((data, index) => {
+            return <option key={index} value={data}>{data}</option>
+          })}
+        </select>
+      </div>
       <NaverMap
         id="react-naver-maps-introduction"
-        style={{ width: '100%', height: '100vh' }}
+        style={{ width: '1000px', height: '600px' }}
         center={Center}
+        defaultZoom={10}
+        onBoundsChanged={()=>{
+          console.log(window.naver.maps.getBounds)
+        }}
       >
-        <div className="TitleLine">
-          <ul className="TitleLine_list">
-              {ClassTypes.map((data,index)=>{
-                return <li key={index} className="Title_type" onClick={(e)=>{
-                  MakeMarker(data);
-                }}>{data}</li>
-              })}
-          </ul>
-        </div>
+
         <button className="ToMeBTN" onClick={PanToMe} />
         <Marker
           key="mypos"
@@ -142,7 +240,7 @@ function NaverMapComponent(props) {
 // reducer에 action을 알리는 함수 
 function mapDispatchToProps(dispatch) {
   return {
-      updateState: (x, y) => dispatch(actionCreators.updateState(x, y))
+    updateState: (x, y) => dispatch(actionCreators.updateState(x, y))
   };
 }
 

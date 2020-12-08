@@ -1,81 +1,79 @@
-.TitleLine_list::-webkit-scrollbar {
-    width: 5px;
-    height: 5px;
-  }
-  
-  /* Track */
-  .TitleLine_list::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 5px grey; 
-    border-radius: 20px;
-  }
-   
-  /* Handle */
-  .TitleLine_list::-webkit-scrollbar-thumb {
-    background: green; 
-    border-radius: 20px;
-  }
-  
-  /* Handle on hover */
-  .TitleLine_list::-webkit-scrollbar-thumb:hover {
-    background: #b30000; 
-  }
-
-  
-#react-naver-maps-introduction{
-    position: relative;
-    z-index: 1;
+@font-face {
+  font-family: "BMJ";
+  src: url('../Fonts/BMJUA_ttf.7dbe95a7.ttf');
 }
+
+
+.Router_Div{
+  background-color: #e5e6e7;
+  height: 100vh;
+  position: relative;
+  z-index: 0;
+}
+  
 .ToMeBTN{
-    background-image: url('../Images/ToMeImg.png');
-    width: 42px;
-    height: 42px;
-    background-position: center;
-    background-size: cover;
-    border-radius: 15px 15px 15px 15px;
-    position: absolute;
-    left: 0;
-    outline: 0;
+    position: relative;
     z-index: 2;
+    background-image: url('../Images/menuIcon.png');
+    width: 42px;
+    height: 50px;
+    background-position: center;
+    background-size: contain;
+    border-radius: 15px 15px 15px 15px;
+    outline: 0;
 }
 .ToMeBTN:hover{
     cursor: pointer;
 }
 
+/* 뒤에 뾰족하기만들기위해 색을 */
+.TitleLine_BackPoint{
+  background-color:#a8c3e8;
+  position: absolute;
+  z-index: -1;
+  width: 200px;
+  height: 100px;
+  overflow: hidden;
+}
 .TitleLine{
     position: relative;
-    z-index: 3;
+    z-index: 1;
     width: 100%;
-    height: 30px;
-    background-color: white;
-    /* width */
-  
+    height: 150px;
+    background-color: rgb(255, 255, 255);
+    margin-bottom: 100px; 
+    border-radius: 70px 0 70px 0;
+    text-align: left;
+    font-size: 25px;
+    padding : 20px 20px 20px 50px;
+    font-family: BMJ;
+    opacity: 1;
+  }
+.SelectMenu{
+  width: 150px;
+  height: 50px;
+  font-size: 20px;
+  outline: 0;
+}
+.SelectMenu2{
+  width: max-content;
+  height: 50px;
+  font-size: 20px;
+  outline: 0;
+}
+.SelectMenu p{
+  margin-top: 2px;
+  margin-bottom: 2px;
+  font-size: 10px;
+}
+.SelectMenu_span1{
+  margin-left: 50px;
+}
+.SelectMenu_span2{
+  margin-left: 50px;
+}
 
-}
-.TitleLine_list{
-    white-space: nowrap; 
-    overflow: auto;
-    margin-top: 0;
-    margin-bottom: 0;
-    height: 30px;
-    background-color: rgb(170, 169, 169);
-}
-
-.TitleLine_list li{
-    display:inline-block;
-    color: black;
-    height: 27px;
-    width: max-content;
-    margin-left: 10px;
-    margin-right: 10px;
-}
-.Title_type{
-  font-weight: bold;
-  font-size: 18px;
-}
-.Title_type:hover{
-  cursor: pointer;
-  color: green;
-  border-color: green;
-  border-style: solid;
-  border-width: 0 0 3px 0;
+#react-naver-maps-introduction{
+  margin-left: auto;
+  margin-right: auto;
 }
