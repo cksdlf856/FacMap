@@ -28,7 +28,12 @@ import SpecialSchool from '../Data/SpecialSchool.json';
 import WelfareCenter from '../Data/WelfareCenter.json';
 
 // 장애인 편의시설 종류 배열
-let Faclities = ['아동복지센터', '어린이집', '장애인고용공단', '장애인복지시설', '종합병원', '유치원집', '파출소', '보건소', '공용화장실', '대피소', '특수학교', '노인복지시설(경로당포함)'];
+let region = ['강남구', '강북구', '강서구', '관악구', '광산구', '광양시', '광주시', '구로구', '구미시', '군산시', '금정구', '금천구',
+  '남구', '남동구', '남양주시', '노원구', '대덕구', '도봉구', '동구', '동래구', '동작구', '마포구', '목포시', '미추홀구', '부천시', '부평구',
+  '북구', '사상구', '사하구', '서구', '서대문구', '성남시', '성동구', '송파구', '수성구', '수영구', '수원시', '순천시', '안동시', '안산시',
+  '연수구', '연제구', '영등포구', '영암군', '완주군', '은평구', '의정부시', '전주시', '정읍시', '제주시', '종로구', '중구', '춘천시',
+  '충주시', '포항시', '하남시', '해운대구', '화성시'];
+let Faclities = ['아동복지시설', '어린이집', '장애인고용공단', '장애인복지시설', '종합병원', '유치원집', '파출소', '보건소', '공용화장실', '대피소', '특수학교', '노인복지시설(경로당포함)'];
 
 
 function NaverMapComponent(props) {
@@ -46,19 +51,7 @@ function NaverMapComponent(props) {
   const [MarkerContainer, setMarkerContainer] = useState([]);
   const [SportType, setSportType] = useState('');
   const [SportType2, setSportType2] = useState('');
-
-  const selectType = e => {
-    setSportType(e.target.value);
-    setSportType2('null');
-    MakeMarker(e.target.value);
-  }
-  const selectType2 = e => {
-    setSportType2(e.target.value);
-    setSportType('null');
-    MakeMarker2(e.target.value);
-  }
-
-
+  const [SportType3, setSportType3] = useState('');
 
 
   // ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■function 관련
@@ -120,62 +113,265 @@ function NaverMapComponent(props) {
     })
     console.log(Made)
     setMarkerContainer(Made);
+    setSportType2('');
+    setSportType3('');
   }
 
-  // 편의시설 Marker 만드는 함수
-  function MakeMarker2(type){
+  // 편의시설 Marker 만드는 함수 ( region : 구,시,군 선택     type : 파출소, 등 선택)
+  function MakeMarker2(region, type) { 
     let Made = [];
-    switch(type){
-      case '아동복지센터' :
-        ChildrenWelfareFacility.forEach((data,index)=>{
-          Made.push(
-            <Marker
-            key={index}
-            position={{ lat: data[2], lng: data[1] }}
-            animation={2}
-            onClick={() => {
-              Swal.fire({
-                title: data[0],
-              })
-            }}
-          />
-          )
-        }) 
-        console.log('1');
+    switch (type) {
+      case '아동복지시설':
+        Made = []; //초기화해야 다른 걸 또 선택했을 때 중복안됨
+        ChildrenWelfareFacility.forEach((data, index) => {
+          if (data[0] === region) {
+            Made.push(
+              <Marker
+                key={index}
+                position={{ lat: data[3], lng: data[2] }}
+                animation={2}
+                onClick={() => {
+                  Swal.fire({
+                    title: data[1],
+                  })
+                }}
+              />
+            )
+          }
+        })
         setMarkerContainer(Made);
+        setSportType('');
         break;
-      case '어린이집' : 
-        console.log("2");
+      case '어린이집':
+        Made = []; //초기화해야 다른 걸 또 선택했을 때 중복안됨
+        DaycareCenter.forEach((data, index) => {
+          if (data[0] === region) {
+            Made.push(
+              <Marker
+                key={index}
+                position={{ lat: data[3], lng: data[2] }}
+                animation={2}
+                onClick={() => {
+                  Swal.fire({
+                    title: data[1],
+                  })
+                }}
+              />
+            )
+          }
+        })
+        setMarkerContainer(Made);
+        setSportType('');
         break;
-      case '장애인고용공단' : 
-        console.log("3");
+      case '장애인고용공단':
+        Made = []; //초기화해야 다른 걸 또 선택했을 때 중복안됨
+        DisableEmployeeFacility.forEach((data, index) => {
+          if (data[0] === region) {
+            Made.push(
+              <Marker
+                key={index}
+                position={{ lat: data[3], lng: data[2] }}
+                animation={2}
+                onClick={() => {
+                  Swal.fire({
+                    title: data[1],
+                  })
+                }}
+              />
+            )
+          }
+        })
+        setMarkerContainer(Made);
+        setSportType('');
         break;
-      case '장애인복지시설' : 
-        console.log("4");
+      case '장애인복지시설':
+        Made = []; //초기화해야 다른 걸 또 선택했을 때 중복안됨
+        DisableFacility.forEach((data, index) => {
+          if (data[0] === region) {
+            Made.push(
+              <Marker
+                key={index}
+                position={{ lat: data[3], lng: data[2] }}
+                animation={2}
+                onClick={() => {
+                  Swal.fire({
+                    title: data[1],
+                  })
+                }}
+              />
+            )
+          }
+        })
+        setMarkerContainer(Made);
+        setSportType('');
         break;
-      case '종합병원' : 
-        console.log("5");
+      case '종합병원':
+        Made = []; //초기화해야 다른 걸 또 선택했을 때 중복안됨
+        GeneralHospital.forEach((data, index) => {
+          if (data[0] === region) {
+            Made.push(
+              <Marker
+                key={index}
+                position={{ lat: data[3], lng: data[2] }}
+                animation={2}
+                onClick={() => {
+                  Swal.fire({
+                    title: data[1],
+                  })
+                }}
+              />
+            )
+          }
+        })
+        setMarkerContainer(Made);
+        setSportType('');
         break;
-      case '유치원집' : 
-        console.log("6");
+      case '유치원집':
+        Made = []; //초기화해야 다른 걸 또 선택했을 때 중복안됨
+        KinderGarden.forEach((data, index) => {
+          if (data[0] === region) {
+            Made.push(
+              <Marker
+                key={index}
+                position={{ lat: data[3], lng: data[2] }}
+                animation={2}
+                onClick={() => {
+                  Swal.fire({
+                    title: data[1],
+                  })
+                }}
+              />
+            )
+          }
+        })
+        setMarkerContainer(Made);
+        setSportType('');
         break;
-      case '파출소' : 
-        console.log("7");
+      case '파출소':
+        Made = []; //초기화해야 다른 걸 또 선택했을 때 중복안됨
+        PoliceBox.forEach((data, index) => {
+          if (data[0] === region) {
+            Made.push(
+              <Marker
+                key={index}
+                position={{ lat: data[3], lng: data[2] }}
+                animation={2}
+                onClick={() => {
+                  Swal.fire({
+                    title: data[1],
+                  })
+                }}
+              />
+            )
+          }
+        })
+        setMarkerContainer(Made);
+        setSportType('');
         break;
-      case '보건소' : 
-        console.log("8");
+      case '보건소':
+        Made = []; //초기화해야 다른 걸 또 선택했을 때 중복안됨
+        PublicHealth.forEach((data, index) => {
+          if (data[0] === region) {
+            Made.push(
+              <Marker
+                key={index}
+                position={{ lat: data[3], lng: data[2] }}
+                animation={2}
+                onClick={() => {
+                  Swal.fire({
+                    title: data[1],
+                  })
+                }}
+              />
+            )
+          }
+        })
+        setMarkerContainer(Made);
+        setSportType('');
         break;
-      case '공용화장실' : 
-        console.log("9");
+      case '공용화장실':
+        Made = []; //초기화해야 다른 걸 또 선택했을 때 중복안됨
+        PublicToilet.forEach((data, index) => {
+          if (data[0] === region) {
+            Made.push(
+              <Marker
+                key={index}
+                position={{ lat: data[3], lng: data[2] }}
+                animation={2}
+                onClick={() => {
+                  Swal.fire({
+                    title: data[1],
+                  })
+                }}
+              />
+            )
+          }
+        })
+        setMarkerContainer(Made);
+        setSportType('');
         break;
-      case '대피소' : 
-        console.log("10");
+      case '대피소':
+        Made = []; //초기화해야 다른 걸 또 선택했을 때 중복안됨
+        Shlter.forEach((data, index) => {
+          if (data[0] === region) {
+            Made.push(
+              <Marker
+                key={index}
+                position={{ lat: data[3], lng: data[2] }}
+                animation={2}
+                onClick={() => {
+                  Swal.fire({
+                    title: data[1],
+                  })
+                }}
+              />
+            )
+          }
+        })
+        setMarkerContainer(Made);
+        setSportType('');
         break;
-      case '특수학교' : 
-        console.log("11");
+      case '특수학교':
+        Made = []; //초기화해야 다른 걸 또 선택했을 때 중복안됨
+        SpecialSchool.forEach((data, index) => {
+          if (data[0] === region) {
+            Made.push(
+              <Marker
+                key={index}
+                position={{ lat: data[3], lng: data[2] }}
+                animation={2}
+                onClick={() => {
+                  Swal.fire({
+                    title: data[1],
+                  })
+                }}
+              />
+            )
+          }
+        })
+        setMarkerContainer(Made);
+        setSportType('');
         break;
-      case '노인복지시설(경로당포함)' : 
-        console.log("12");
+      case '노인복지시설(경로당포함)':
+        Made = []; //초기화해야 다른 걸 또 선택했을 때 중복안됨
+        WelfareCenter.forEach((data, index) => {
+          if (data[0] === region) {
+            Made.push(
+              <Marker
+                key={index}
+                position={{ lat: data[3], lng: data[2] }}
+                animation={2}
+                onClick={() => {
+                  Swal.fire({
+                    title: data[1],
+                  })
+                }}
+              />
+            )
+          }
+        })
+        setMarkerContainer(Made);
+        setSportType('');
         break;
     }
   }
@@ -188,6 +384,7 @@ function NaverMapComponent(props) {
   useEffect(() => {
     getLocation();
     GetClassInfo();
+
   }, [])
 
 
@@ -198,31 +395,39 @@ function NaverMapComponent(props) {
       <div className="TitleLine">
         <p>찾으시는 종목을 선택하시면 해당 체육시설 또는 편의시설들이 표시됩니다.</p>
         <span className="SelectMenu_span1">종목 : </span>
-        <select className="SelectMenu" onChange={selectType} value={SportType}>
+        <select className="SelectMenu" onChange={(e)=>{setSportType(e.target.value)}} value={SportType}>
           <option value={null}>선택하세요.</option>
           {ClassTypes.map((data, index) => {
             return <option key={index} value={data}>{data}</option>
           })}
         </select>
+        <button onClick={()=>{MakeMarker(SportType)}}>찾기</button>
+
+
+        {/* 지역 및 편의시설 select */}
         <span className="SelectMenu_span2">편의시설 : </span>
-        <select className="SelectMenu2" onChange={selectType2} value={SportType2}>
+        <select className="SelectMenu2" onChange={(e)=>{setSportType2(e.target.value)}} value={SportType2}>
+          <option value={null}>선택하세요.</option>
+          {region.map((data, index) => {
+            return <option key={index} value={data}>{data}</option>
+          })}
+        </select>
+        <select className="SelectMenu3" onChange={(e)=>{setSportType3(e.target.value)}} value={SportType3}>
           <option value={null}>선택하세요.</option>
           {Faclities.map((data, index) => {
             return <option key={index} value={data}>{data}</option>
           })}
         </select>
+        <button onClick={()=>{MakeMarker2(SportType2, SportType3)}}>찾기</button>
       </div>
       <NaverMap
         id="react-naver-maps-introduction"
         style={{ width: '1000px', height: '600px' }}
         center={Center}
         defaultZoom={10}
-        onBoundsChanged={()=>{
-          console.log(window.naver.maps.getBounds)
-        }}
       >
 
-        <button className="ToMeBTN" onClick={PanToMe} />
+        <div className="ToMeBTN" onClick={PanToMe} />
         <Marker
           key="mypos"
           position={MyPosition}
