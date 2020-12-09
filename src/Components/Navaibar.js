@@ -17,27 +17,33 @@ function Navibar(props) {
             <div className="Navibar">
                 <p className="Navibar_text">장애인 운동 시설 및 편의시설</p>
                 <div className="menu_icon"></div>
-                <Link onClick={()=>{
-                    setDP1('linkitem using')
+                <Link onClick={() => {
+                    setDP1('linkitem menu1_clicked')
                     setDP2('linkitem');
                     setDP3('linkitem')
                 }} className={DP1 + ' menu1'} to="/">체육관 지도</Link>
-                <Link onClick={()=>{
+                <Link onClick={() => {
                     setDP1('linkitem')
-                    setDP2('linkitem using');
+                    setDP2('linkitem menu2_clicked');
                     setDP3('linkitem')
                 }} className={DP2 + ' menu2'} to="/subway">공사중 지하철</Link>
-                <Link onClick={()=>{
+                <Link onClick={() => {
                     setDP1('linkitem')
                     setDP2('linkitem');
-                    setDP3('linkitem using')
+                    setDP3('linkitem menu3_clicked')
                 }} className={DP3 + ' menu3'} to="/chart">차트</Link>
+
+
+                <div className="footer">
+                    <p>문의 : snstkfka02@hanmail.net</p>
+                </div>
             </div>
             <div className="Navibar_Content" style={{ textAlign: "center", width: '100%' }} >
                 <Route exact path="/" component={MapPage} />
                 <Route path="/subway" component={SubwayPage} />
                 <Route path="/chart" component={Chart} />
             </div>
+
         </Router>
     )
 }

@@ -123,7 +123,7 @@ function SubwayPage(props) {
             >
                 <NaverMap
                     id="react-naver-maps-introduction"
-                    style={{ width: '1000px', height: '600px' }}
+                    style={{ width: '1100px', height: '650px' }}
                     defaultZoom={12}
                     center={MyPos}
                 >

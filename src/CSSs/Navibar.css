@@ -10,7 +10,7 @@
     display: inline-block;
     width: 30%;
     height: 100vh;
-    background-color: #a8c3e8;
+    background-color: #d8dfe9;
     font-size: 25px;
     font-family: BMJ;
     color: white;
@@ -21,6 +21,10 @@
     color: black;
     margin-top: 50px;
 }
+.Navi_Side{
+    position: absolute;
+    left: 0;
+}
 .Navibar_Content{
     width: 70%;
     height: 100vh;
@@ -28,17 +32,19 @@
 
 .linkitem{
     display: block;
-    margin-bottom: 20px;
-    margin-top: 20px;
+    margin-bottom: 35px;
+    margin-top: 35px;
     margin-left: auto;
     margin-right: auto;
     line-height: 127px;
     border-radius: 30px 0 30px 0;
     vertical-align: middle;
     font-weight: bold;
+    color: #537099;
+    box-shadow: 0 10px 10px 0;
 }
 .linkitem:hover{
-    color: blue;
+    color: #304461;
 }
 .menu_icon{
     width: 96px;
@@ -47,7 +53,7 @@
     margin-left: auto;
     margin-right: auto;
     margin-top: 50px;
-    margin-bottom: 100px;
+    margin-bottom: 70px;
 }
 .menu1{
     width: 291px;
@@ -64,7 +70,38 @@
     height: 127px;
     background-image: url('../Images/menu3.png');
 }
-
-.using{ /* 메뉴 클릭시 특수효과 위한 class */
-    color: blue;
+.menu1_clicked{
+    background-image: url('../Images/menu1_clicked.png');
+    color: #304461;
+    box-shadow: 0 15px 15px 0;
 }
+.menu2_clicked{
+    background-image: url('../Images/menu2_clicked.png');
+    color: #304461;
+    box-shadow: 0 15px 15px 0;
+}
+.menu3_clicked{
+    background-image: url('../Images/menu3_clicked.png');
+    color: #304461;
+    box-shadow: 0 15px 15px 0;
+}
+
+
+
+.footer{
+    position: fixed;
+    bottom: 0;
+    width: 30%;
+    height: 30px;
+    line-height: 30px;
+    text-align: left;
+    vertical-align: middle;
+}
+.footer p{
+    font-size: 12px;
+    margin-left: 10px;
+}
+
+
+
+

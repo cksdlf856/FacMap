@@ -29,7 +29,7 @@
 
 /* 뒤에 뾰족하기만들기위해 색을 */
 .TitleLine_BackPoint{
-  background-color:#a8c3e8;
+  background-color:#d8dfe9;
   position: absolute;
   z-index: -1;
   width: 200px;
@@ -42,29 +42,32 @@
     width: 100%;
     height: 150px;
     background-color: rgb(255, 255, 255);
-    margin-bottom: 100px; 
     border-radius: 70px 0 70px 0;
-    text-align: left;
     font-size: 25px;
     padding : 20px 20px 20px 50px;
     font-family: BMJ;
     opacity: 1;
+    text-align: center;
+    box-shadow: 10px 10px 10px gray;
   }
 .TitleLine p{
   text-align: center;
+  margin-top: 3px;
+  margin-bottom: 3px;
 }
 
 .SelectMenu{
-  width: 150px;
-  height: 50px;
-  font-size: 20px;
-  outline: 0;
-}
-.SelectMenu2{
   width: max-content;
-  height: 50px;
-  font-size: 20px;
+  height: 30px;
+  font-size: 17px;
   outline: 0;
+  background-color: #d8dfe9;
+  color: #304461;
+  border-radius: 10px 10px 10px 10px;
+  margin-right: 5px;
+}
+.SelectMenu:hover{
+  cursor: pointer;
 }
 .SelectMenu p{
   margin-top: 2px;
@@ -77,8 +80,22 @@
 .SelectMenu_span2{
   margin-left: 50px;
 }
-
+.SelectBTN{
+  display: inline-block;
+  background-image: url('../Images/find.png');
+  width: 25px;
+  height: 28px;
+  line-height: 30px;
+  vertical-align: middle;
+  margin-left: 10px;
+  background-position: center;
+  background-size: cover;
+}
+.SelectBTN:hover{
+  cursor: pointer;
+}
 #react-naver-maps-introduction{
   margin-left: auto;
   margin-right: auto;
+  margin-top: 8vh;
 }
