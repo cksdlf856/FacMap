@@ -9,6 +9,7 @@ import '../CSSs/SubwayPage.css';
 
 // Image import
 import warning from '../Images/warning.png'
+import menuIcon from '../Images/menuIcon.png'
 
 // Component import
 import 'antd/dist/antd.css';
@@ -113,6 +114,7 @@ function SubwayPage(props) {
         <div className="Router_Div">
             <div className="TitleLine_BackPoint"></div>
             <div className="TitleLine">
+            <p className="Mobile_text1"><img className="TopMenuIcon" src={menuIcon}/> 지하철 승강설비 현황</p>
                 <p>서울 지하철역들 중 승강 설비 공사 현황</p>
                 <p>승강 설비 현황 및 도착 시간을 확인해보세요!(약 1~2초간의 소요가 발생할 수 있습니다.)</p>
             </div>
@@ -123,7 +125,6 @@ function SubwayPage(props) {
             >
                 <NaverMap
                     id="react-naver-maps-introduction"
-                    style={{ width: '1100px', height: '650px' }}
                     defaultZoom={12}
                     center={MyPos}
                 >
