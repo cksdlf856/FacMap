@@ -8,6 +8,7 @@ import '../CSSs/NaverMapComponent.css';
 import ClassInfo from '../Data/ClassInfo.json';
 // Image 관련
 import placeholder from '../Images/placeholder.png';
+import menuIcon from '../Images/menuIcon.png';
 // redux 관련
 import { connect } from 'react-redux';
 import { actionCreators } from '../store';
@@ -405,8 +406,9 @@ function NaverMapComponent(props) {
     <div className="Router_Div">
       <div className="TitleLine_BackPoint"></div>
       <div className="TitleLine">
-        <p>장애인 스포츠 강좌 이용권으로 등록가능한 시설입니다.</p>
-        <p>찾으시는 종목을 선택하시면 해당 체육시설 또는 편의시설들이 표시됩니다.</p>
+        <p className="Mobile_text1"><img className="TopMenuIcon" src={menuIcon}/> 장애인 운동시설 및 편의시설</p>
+        <p className="Titleline_text2">장애인 스포츠 강좌 이용권으로 등록가능한 시설입니다.</p>
+        <p className="Titleline_text2">찾으시는 종목을 선택하시면 해당 체육시설 또는 편의시설들이 표시됩니다.</p>
         <span className="SelectMenu_span1">종목 : </span>
         <select className="SelectMenu" onChange={(e) => { setSportType(e.target.value) }} value={SportType}>
           <option value=''>선택하세요.</option>
@@ -416,6 +418,7 @@ function NaverMapComponent(props) {
         </select>
         <div className="SelectBTN" onClick={() => { MakeMarker(SportType) }}></div>
 
+        <div className="Mobile_EnterLine"></div>
 
         {/* 지역 및 편의시설 select */}
         <span className="SelectMenu_span2">편의시설 : </span>
@@ -435,7 +438,6 @@ function NaverMapComponent(props) {
       </div>
       <NaverMap
         id="react-naver-maps-introduction"
-        style={{ width: '1100px', height: '650px' }}
         center={Center}
         defaultZoom={10}
       >

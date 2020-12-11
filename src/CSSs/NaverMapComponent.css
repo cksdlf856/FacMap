@@ -3,99 +3,284 @@
   src: url('../Fonts/BMJUA_ttf.7dbe95a7.ttf');
 }
 
-
-.Router_Div{
-  background-color: #e5e6e7;
-  height: 100vh;
-  position: relative;
-  z-index: 0;
-}
+@media (min-width: 1280px){
+ /* 모바일 요소 */
   
-.ToMeBTN{
-    position: relative;
-    z-index: 2;
-    background-image: url('../Images/MyPoint.png');
-    width: 42px;
-    height: 50px;
-    background-position: center;
-    background-size: contain;
-    border-radius: 15px 15px 15px 15px;
-    outline: 0;
-    margin-left: auto;
-}
-.ToMeBTN:hover{
-    cursor: pointer;
+ .Mobile_EnterLine{
+  display: none;
 }
 
-/* 뒤에 뾰족하기만들기위해 색을 */
-.TitleLine_BackPoint{
-  background-color:#d8dfe9;
-  position: absolute;
-  z-index: -1;
-  width: 200px;
-  height: 100px;
-  overflow: hidden;
-}
-.TitleLine{
+
+
+  .Router_Div{
+    background-color: #e5e6e7;
+    height: 100vh;
     position: relative;
-    z-index: 1;
-    width: 100%;
-    height: 150px;
-    background-color: rgb(255, 255, 255);
-    border-radius: 70px 0 70px 0;
-    font-size: 25px;
-    padding : 20px 20px 20px 50px;
-    font-family: BMJ;
-    opacity: 1;
-    text-align: center;
-    box-shadow: 10px 10px 10px gray;
+    z-index: 0;
   }
-.TitleLine p{
-  text-align: center;
-  margin-top: 3px;
-  margin-bottom: 3px;
+    
+  .ToMeBTN{
+      position: relative;
+      z-index: 2;
+      background-image: url('../Images/MyPoint.png');
+      width: 42px;
+      height: 50px;
+      background-position: center;
+      background-size: contain;
+      border-radius: 15px 15px 15px 15px;
+      outline: 0;
+      margin-left: auto;
+  }
+  .ToMeBTN:hover{
+      cursor: pointer;
+  }
+  
+  /* 뒤에 뾰족하기만들기위해 색을 */
+  .TitleLine_BackPoint{
+    background-color:#d8dfe9;
+    position: absolute;
+    z-index: -1;
+    width: 200px;
+    height: 100px;
+    overflow: hidden;
+  }
+  .TitleLine{
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      height: 15vh;
+      background-color: rgb(255, 255, 255);
+      border-radius: 70px 0 70px 0;
+      font-size: 1rem;
+      padding : 20px 20px 20px 50px;
+      font-family: BMJ;
+      opacity: 1;
+      text-align: center;
+      box-shadow: 5px 5px 5px gray;
+    }
+  .TitleLine p{
+    text-align: center;
+    margin-top: 3px;
+    margin-bottom: 3px;
+  }
+  
+  .SelectMenu{
+    width: max-content;
+    height: 3vh;
+    font-size: 0.8rem;
+    outline: 0;
+    background-color: #d8dfe9;
+    color: #304461;
+    border-radius: 5px 5px 5px 5px;
+    margin-right: 5px;
+    font-family: 'Courier New', Courier, monospace;
+  }
+  .SelectMenu:hover{
+    cursor: pointer;
+  }
+  .SelectMenu p{
+    margin-top: 2px;
+    margin-bottom: 2px;
+    font-size: 10px;
+  }
+  .SelectMenu_span1{
+    margin-left: 50px;
+  }
+  .SelectMenu_span2{
+    margin-left: 50px;
+  }
+  .SelectBTN{
+    display: inline-block;
+    background-image: url('../Images/find.png');
+    width: 25px;
+    height: 28px;
+    line-height: 30px;
+    vertical-align: middle;
+    margin-left: 10px;
+    background-position: center;
+    background-size: cover;
+  }
+  .SelectBTN:hover{
+    cursor: pointer;
+  }
+  #react-naver-maps-introduction{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 8vh;
+    width: 65vw;
+    height: 65vh;
+  }
+
 }
 
-.SelectMenu{
-  width: max-content;
-  height: 30px;
-  font-size: 17px;
-  outline: 0;
-  background-color: #d8dfe9;
-  color: #304461;
-  border-radius: 10px 10px 10px 10px;
-  margin-right: 5px;
+
+@media (min-width: 1024px) and (max-width: 1279px){
+  /* 모바일 요소 */
+  
+  .Mobile_EnterLine{
+    display: none;
+  }
+
+
+  .Router_Div{
+    background-color: #e5e6e7;
+    height: 100vh;
+    position: relative;
+    z-index: 0;
+  }
+  .ToMeBTN{
+      position: relative;
+      z-index: 2;
+      background-image: url('../Images/MyPoint.png');
+      width: 42px;
+      height: 50px;
+      background-position: center;
+      background-size: contain;
+      border-radius: 15px 15px 15px 15px;
+      outline: 0;
+      margin-left: auto;
+  }
+  .ToMeBTN:hover{
+      cursor: pointer;
+  }
+  /* 뒤에 뾰족하기만들기위해 색을 */
+  .TitleLine_BackPoint{
+    background-color:#d8dfe9;
+    position: absolute;
+    z-index: -1;
+    width: 200px;
+    height: 100px;
+    overflow: hidden;
+  }
+  .TitleLine{
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      height: 15vh;
+      background-color: rgb(255, 255, 255);
+      border-radius: 70px 0 70px 0;
+      font-size: 1rem;
+      padding : 20px 20px 20px 50px;
+      font-family: BMJ;
+      opacity: 1;
+      text-align: center;
+      box-shadow: 5px 5px 5px gray;
+    }
+  .TitleLine p{
+    text-align: center;
+    margin-top: 3px;
+    margin-bottom: 3px;
+  }
+  .SelectMenu{
+    width: max-content;
+    height: 3vh;
+    font-size: 0.8rem;
+    outline: 0;
+    background-color: #d8dfe9;
+    color: #304461;
+    border-radius: 5px 5px 5px 5px;
+    margin-right: 5px;
+    font-family: 'Courier New', Courier, monospace;
+  }
+  .SelectMenu:hover{
+    cursor: pointer;
+  }
+  .SelectMenu p{
+    margin-top: 2px;
+    margin-bottom: 2px;
+    font-size: 10px;
+  }
+  .SelectMenu_span1{
+    margin-left: 50px;
+  }
+  .SelectMenu_span2{
+    margin-left: 20px;
+  }
+  .SelectBTN{
+    display: inline-block;
+    background-image: url('../Images/find.png');
+    width: 20px;
+    height: 23px;
+    line-height: 30px;
+    vertical-align: middle;
+    margin-left: 10px;
+    background-position: center;
+    background-size: cover;
+  }
+  .SelectBTN:hover{
+    cursor: pointer;
+  }
+  #react-naver-maps-introduction{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 8vh;
+    width: 65vw;
+    height: 65vh;
+  }
 }
-.SelectMenu:hover{
-  cursor: pointer;
+
+
+
+@media (min-width: 325px) and (max-width: 480px){
+  .TitleLine{
+    width: 100%;
+    height: 25vh;
+    background-color: #d8dfe9;
+    font-size: 11px;
+  }
+  .Titleline_text2{
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+  .TopMenuIcon{
+    width: 25px;
+    height: 30px;
 }
-.SelectMenu p{
-  margin-top: 2px;
-  margin-bottom: 2px;
-  font-size: 10px;
-}
-.SelectMenu_span1{
-  margin-left: 50px;
-}
-.SelectMenu_span2{
-  margin-left: 50px;
-}
-.SelectBTN{
-  display: inline-block;
-  background-image: url('../Images/find.png');
-  width: 25px;
-  height: 28px;
-  line-height: 30px;
-  vertical-align: middle;
-  margin-left: 10px;
-  background-position: center;
-  background-size: cover;
-}
-.SelectBTN:hover{
-  cursor: pointer;
-}
-#react-naver-maps-introduction{
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 8vh;
+  .Mobile_text1{
+    margin-top: 0;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    background-color:  #1a365f;
+    width: 100%;
+  }
+  .SelectMenu{
+    width: max-content;
+    height: 20px;
+    font-size: 11px;
+  }
+  .SelectBTN{
+    display: inline-block;
+    background-image: url('../Images/find.png');
+    width: 15px;
+    height: 15px;
+    line-height: 15px;
+    vertical-align: middle;
+    background-position: center;
+    background-size: cover;
+  }
+  .Mobile_EnterLine{
+    height: 3px;
+  }
+  
+  #react-naver-maps-introduction{
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    height: 75vh;
+  }
+  .ToMeBTN{
+    position: fixed;
+    top: 25vh;
+    left: 0;
+    z-index: 3;
+    width: 30px;
+    height: 30px;
+    background-image: url('../Images/MyPoint.png');
+    background-size: cover;
+    background-position: center;
+  }
 }
