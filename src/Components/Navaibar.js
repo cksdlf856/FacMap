@@ -14,7 +14,7 @@ function Navibar(props) {
     const [DP2, setDP2] = useState('linkitem');
     const [DP3, setDP3] = useState('linkitem');
 
-    const [DPofMobileNavi, setDPofMobileNavi] = useState('Mobile_Navi_hide');
+    const [DPofMobileNavi, setDPofMobileNavi] = useState('Navi_Mobile_hide');
     const [DPofHamburger, setDPofHamburger] =useState('Hamburger_show');
     return (
         <Router>
