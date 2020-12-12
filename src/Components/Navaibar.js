@@ -17,7 +17,7 @@ function Navibar(props) {
     const [DPofMobileNavi, setDPofMobileNavi] = useState('Navi_Mobile_hide');
     const [DPofHamburger, setDPofHamburger] =useState('Hamburger_show');
     return (
-        <Router>
+        <Router basename="faclimap">
             {/* 테블릿, 데스크탑에서 보여질 네비게이션 바 */}
             <div className="Navibar">
                 <p className="Navibar_text">장애인 운동 시설 및 편의시설</p>
